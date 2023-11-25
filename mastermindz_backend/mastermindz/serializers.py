@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Group, GroupMembers, GroupChat, PrivateChat, GroupTags
+from .models import Group, GroupMember, GroupChat, PrivateChat, GroupTag
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -8,9 +8,9 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'date_joined']
 
-class GroupMembersSerializer(serializers.ModelSerializer):
+class GroupMemberSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GroupMembers
+        model = GroupMember
         fields = '__all__'
 
 
@@ -22,7 +22,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
 class GroupTagSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GroupTags
+        model = GroupTag
         fields = '__all__'
 
 

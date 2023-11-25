@@ -11,7 +11,7 @@ class Group(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-class GroupMembers(models.Model):
+class GroupMember(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     joined_at = models.DateTimeField(auto_now_add=True)
@@ -32,5 +32,5 @@ class PrivateChat(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
 
-class GroupTags(models.Model):
+class GroupTag(models.Model):
     name = models.CharField(max_length=255)
