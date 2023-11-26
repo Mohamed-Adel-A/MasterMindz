@@ -6,8 +6,8 @@ class Group(models.Model):
     description = models.TextField()
     leader = models.ForeignKey(User, on_delete=models.CASCADE, related_name='groups_led')
     category = models.CharField(max_length=255)
-    tags = models.ManyToManyField('GroupTags')
-    members = models.ManyToManyField(User, through='GroupMembers', related_name='groups_joined')
+    tags = models.ManyToManyField('GroupTag')
+    members = models.ManyToManyField(User, through='GroupMember', related_name='groups_joined')
     created_at = models.DateTimeField(auto_now_add=True)
 
 
@@ -26,8 +26,8 @@ class GroupChat(models.Model):
 
 class PrivateChat(models.Model):
     participants = models.ManyToManyField(User, related_name='private_chats')
-    sender = models.ForeignKey(User, on_delete=models.CASCADE) # related_name='sent_private_chats')
-    receiver = models.ForeignKey(User, on_delete=models.CASCADE) # related_name='received_private_chats')
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_private_chats')
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_private_chats')
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 

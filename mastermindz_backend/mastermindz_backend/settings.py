@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = []
+
+CORS_ALLOWED_CREDENTIALS = True
 
 # Application definition
 
